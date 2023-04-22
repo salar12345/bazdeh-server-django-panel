@@ -1,0 +1,36 @@
+version: '3'
+services:
+  panel-server-django:
+    image: repo.narvanventures.lc:9000/bazdeh-server-django-panel:prod-latest
+    restart: always
+    ports:
+      - "8300:8300"
+      - "8230:8230"
+    environment:
+      - APP_SECRET_KEY=${APP_SECRET_KEY}
+      - RDB_NAME=${RDB_NAME}
+      - RDB_HOST=${RDB_HOST}
+      - RDB_PORT=${RDB_PORT}
+      - RDB_PASSWORD=${RDB_PASSWORD}
+      - RDB_USERNAME=${RDB_USERNAME}
+      - Kave_Negar_API_Key=${Kave_Negar_API_Key}
+      - POST_SERVE_ADDRESS=${POST_SERVE_ADDRESS}
+      - PUBLISHER_SERVE_ADDRESS=${PUBLISHER_SERVE_ADDRESS}
+      - LOAN_SERVE_ADDRESS=${LOAN_SERVE_ADDRESS}
+      - ELASTIC_SEARCH_HOSTS=${ELASTIC_SEARCH_HOSTS}
+      - ELASTIC_SEARCH_HTTP_AUTH_USER_NAME=${ELASTIC_SEARCH_HTTP_AUTH_USER_NAME}
+      - ELASTIC_SEARCH_HTTP_AUTH_PASSWORD=${ELASTIC_SEARCH_HTTP_AUTH_PASSWORD}
+      - CONTENT_HOUSING_HOME_PRICE_ES_INDEX_NAME=${CONTENT_HOUSING_HOME_PRICE_ES_INDEX_NAME}
+      - REDIS_HOST=${REDIS_HOST}
+      - REDIS_PORT=${REDIS_PORT}
+
+    #    command: gunicorn -k gevent -w 9 bzsp.wsgi:application
+    command: gunicorn -b "0.0.0.0:8300" -w 4 -t 120 --graceful-timeout 120 --keep-alive 5 bzsdp.project.wsgi:application
+    networks:
+      - dockernet
+
+    # for debuging
+    #command: tail -f /dev/null
+networks:
+  dockernet:
+    external: true

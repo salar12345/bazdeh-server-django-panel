@@ -1,0 +1,18 @@
+from prometheus_client import Gauge, Histogram
+
+POSTGRESQL_HEALTH = Gauge('postgresql_health', 'postgresql health')
+POSTGRESQL_RESPONSE_TIME = Histogram('postgresql_response_time', 'postgresql response time')
+ELASTICSEARCH_HEALTH = Gauge('elasticsearch_health', 'elasticsearch health')
+ELASTICSEARCH_RESPONSE_TIME = Histogram('elasticsearch_response_time', 'elasticsearch response time')
+REDIS_HEALTH = Gauge('redis_health', 'redis health')
+REDIS_RESPONSE_TIME = Histogram('redis_response_time', 'redis response time')
+GHASEDAK_HEALTH = Gauge('ghasedak_health', 'ghasedak health')
+GHASEDAK_RESPONSE_TIME = Histogram('ghasedak_response_time', 'ghasedak response time')
+GILLETE_HEALTH = Gauge('gillete_health', 'gillete health')
+GILLETE_RESPONSE_TIME = Histogram('gillete_response_time', 'gillete response time')
+POST_SERVE_HEALTH = Gauge('post_serve_health', 'post serve health')
+POST_SERVE_RESPONSE_TIME = Histogram('post_serve_response_time', 'post serve response time')
+PUBLISHER_SERVE_HEALTH = Gauge('publisher_serve_health', 'publisher serve health')
+PUBLISHER_SERVE_RESPONSE_TIME = Histogram('publisher_serve_response_time', 'publisher serve response time')
+MEMBER_LOG_HEALTH = Gauge('member_log_health', 'member log health')
+MEMBER_LOG_RESPONSE_TIME = Histogram('member_log_response_time', 'member log response time')

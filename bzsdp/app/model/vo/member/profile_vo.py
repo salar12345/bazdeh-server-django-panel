@@ -1,0 +1,10 @@
+class ProfileVO:
+    NAME = "name"
+    LAST_NAME = "last_name"
+    IMAGE_URL = "image_url"
+    DEADMAN = "https://api.stage.baazde.ir/images/profile_images/P-DEADMAN.png"
+    GLASSBOY = "https://api.stage.baazde.ir/images/profile_images/P-GLASSBOY.png"
+    GOODBOY = "https://api.stage.baazde.ir/images/profile_images/P-GOODBOY.png"
+    HAPPYGIRL = "https://api.stage.baazde.ir/images/profile_images/P-HAPPYGIRL.png"
+    NERDBOY = "https://api.stage.baazde.ir/images/profile_images/P-NERDBOY.png"
+    OLDFASHIONGIRL = "https://api.stage.baazde.ir/images/profile_images/P-OLDFASHIONGIRL.png"
